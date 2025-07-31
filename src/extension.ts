@@ -37,7 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
     async () => {
       const jsonPath = await getSymbolTrail();
 
-      await vscode.env.clipboard.writeText(jsonPath);
+      await vscode.env.clipboard.writeText(`"${jsonPath}"`);
     }
   );
 
