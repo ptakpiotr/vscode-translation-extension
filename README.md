@@ -4,7 +4,11 @@ This is the README for your extension "vs-code-translation-extension".
 
 ## Features
 
-Allows to copy json keys to clipboard.
+- Allows to copy JSON keys to clipboard.
+
+## Usage
+
+- Right click in the JSON file and copy key
 
 ## Requirements
 
@@ -22,4 +26,4 @@ None
 
 ### 1.0.0
 
-Initial release of extension
+- Initial release of extension
