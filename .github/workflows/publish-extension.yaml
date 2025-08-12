@@ -26,10 +26,18 @@ jobs:
           npm install -g vsce
           vsce package
 
+      - name: Generate timestamp tag
+        id: tag
+        run: |
+          TIMESTAMP=$(date -u +"%Y.%m.%d-%H%M%S")
+          echo "tag=$TIMESTAMP" >> $GITHUB_OUTPUT
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: "*.vsix"
+          tag_name: ${{ steps.tag.outputs.tag }}
+
         env:
           # GITHUB_TOKEN automatically added by Github
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
