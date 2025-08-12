@@ -1,6 +1,6 @@
-# vs-code-translation-extension README
+# Code translation extension
 
-This is the README for your extension "vs-code-translation-extension".
+Code translation extension.
 
 ## Features
 
