@@ -1,0 +1,35 @@
+name: Publish VS Code translation extension
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Package VS Code extension
+        run: |
+          npm install -g vsce
+          vsce package
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "*.vsix"
+        env:
+          # GITHUB_TOKEN automatically added by Github
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
